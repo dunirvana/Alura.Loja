@@ -10,7 +10,32 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            GravarUsandoAdoNet();
+            //GravarUsandoAdoNet();
+            GravarUsandoEntityFrameworkCore();
+        }
+
+        private static void GravarUsandoEntityFrameworkCore()
+        {
+            Produto p1 = new Produto();
+            p1.Nome = "Harry Potter e a Ordem da Fênix";
+            p1.Categoria = "Livros";
+            p1.Preco = 19.89;
+
+            Produto p2 = new Produto();
+            p2.Nome = "Senhor dos Anéis 1";
+            p2.Categoria = "Livros";
+            p2.Preco = 19.89;
+
+            Produto p3 = new Produto();
+            p3.Nome = "O Monge e o Executivo";
+            p3.Categoria = "Livros";
+            p3.Preco = 19.89;
+
+            using (var contexto = new LojaContext())
+            {
+                contexto.Produtos.AddRange(p1, p2, p3);
+                contexto.SaveChanges(); 
+            }
         }
 
         private static void GravarUsandoAdoNet()

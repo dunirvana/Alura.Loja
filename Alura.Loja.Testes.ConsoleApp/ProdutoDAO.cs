@@ -84,7 +84,7 @@ namespace Alura.Loja.Testes.ConsoleApp
             }
         }
 
-        internal IList<Produto> Produtos()
+        internal IList<Produto> RecuperarProdutos()
         {
             var lista = new List<Produto>();
 
